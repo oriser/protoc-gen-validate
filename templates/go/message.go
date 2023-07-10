@@ -1,6 +1,6 @@
 package golang
 
-// Embedded message validation
+// Embedded message validation.
 const messageTpl = `
 	{{ $f := .Field }}{{ $r := .Rules }}
 	{{ template "required" . }}
