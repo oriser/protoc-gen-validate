@@ -8,7 +8,7 @@ const messageTpl = `
 	{{ if .MessageRules.GetSkip }}
 		// skipping validation for {{ $f.Name }}
 	{{ else }}
-		if !(v == nil || (reflect.ValueOf(v).Kind() == reflect.Ptr && reflect.ValueOf(v).IsNil())) {
+		if {{ accessor . }} != nil {
 			if all {
 				switch v := interface{}({{ accessor . }}).(type) {
 					case interface{ ValidateAll() error }:
